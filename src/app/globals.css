@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* =========================
+       MAIN COLORS
+       ========================= */
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 9%;
+
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 9%;
+
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 0% 20%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 0 0% 25%;
+
+    --radius: 0.5rem;
+  }
+
+  /* =========================
+     DARK MODE
+     ========================= */
+
+  .dark {
+    --background: 0 0% 9%;
+    --foreground: 0 0% 96%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 65%;
+
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 96%;
+
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 96%;
+
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 96%;
+
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 0 0% 25%;
+    --destructive-foreground: 0 0% 96%;
+
+    --ring: 0 0% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* =========================
+   LINK HOVER
+   ========================= */
+
+@layer components {
+  .link-hover:hover .red-line {
+    @apply w-full;
+  }
+}
+
+/* =========================================================
+   HERO SLIDER
+   ========================================================= */
+
+.hero-swiper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* =========================================================
+   NAVIGATION BUTTONS
+   ========================================================= */
+
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next {
+  width: 46px !important;
+  height: 46px !important;
+
+  margin-top: -23px !important;
+
+  border-radius: 9999px !important;
+
+  background: #262626 !important;
+
+  color: white !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  opacity: 1 !important;
+
+  z-index: 30 !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease !important;
+
+  /* IMPORTANT:
+     Removes the blue browser focus marker */
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover */
+
+.hero-swiper .swiper-button-prev:hover,
+.hero-swiper .swiper-button-next:hover {
+  background: #111111 !important;
+  transform: scale(1.05);
+}
+
+/* Remove Swiper's default arrow */
+
+.hero-swiper .swiper-button-prev::after,
+.hero-swiper .swiper-button-next::after {
+  content: "" !important;
+
+  width: 10px !important;
+  height: 10px !important;
+
+  font-size: 0 !important;
+
+  border-top: 2px solid #ffffff !important;
+  border-right: 2px solid #ffffff !important;
+
+  position: absolute !important;
+}
+
+/* LEFT ARROW */
+
+.hero-swiper .swiper-button-prev {
+  left: 28px !important;
+  right: auto !important;
+}
+
+.hero-swiper .swiper-button-prev::after {
+  transform: rotate(-135deg) !important;
+  margin-left: 5px !important;
+}
+
+/* RIGHT ARROW */
+
+.hero-swiper .swiper-button-next {
+  right: 28px !important;
+  left: auto !important;
+}
+
+.hero-swiper .swiper-button-next::after {
+  transform: rotate(45deg) !important;
+  margin-right: 5px !important;
+}
+
+/* =========================================================
+   REMOVE BLUE FOCUS / ACTIVE MARKER
+   ========================================================= */
+
+.hero-swiper .swiper-button-prev:focus,
+.hero-swiper .swiper-button-next:focus,
+.hero-swiper .swiper-button-prev:focus-visible,
+.hero-swiper .swiper-button-next:focus-visible,
+.hero-swiper .swiper-pagination-bullet:focus,
+.hero-swiper .swiper-pagination-bullet:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+.hero-swiper .swiper-pagination {
+  position: absolute !important;
+
+  bottom: 22px !important;
+
+  left: 0 !important;
+  right: 0 !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 4px !important;
+
+  z-index: 30 !important;
+}
+
+/* Pagination bars */
+
+.hero-swiper .swiper-pagination-bullet {
+  width: 28px !important;
+  height: 3px !important;
+
+  margin: 0 !important;
+
+  border-radius: 0 !important;
+
+  background: #b8b8b8 !important;
+
+  opacity: 1 !important;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease !important;
+}
+
+/* Active pagination */
+
+.hero-swiper .swiper-pagination-bullet-active {
+  width: 38px !important;
+
+  background: #171717 !important;
+
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   MOBILE SLIDER
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hero-swiper .swiper-button-prev,
+  .hero-swiper .swiper-button-next {
+    width: 36px !important;
+    height: 36px !important;
+
+    margin-top: -18px !important;
+  }
+
+  .hero-swiper .swiper-button-prev {
+    left: 12px !important;
+  }
+
+  .hero-swiper .swiper-button-next {
+    right: 12px !important;
+  }
+
+  .hero-swiper .swiper-button-prev::after,
+  .hero-swiper .swiper-button-next::after {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  .hero-swiper .swiper-pagination {
+    bottom: 14px !important;
+  }
+
+  .hero-swiper .swiper-pagination-bullet {
+    width: 20px !important;
+    height: 2px !important;
+  }
+
+  .hero-swiper .swiper-pagination-bullet-active {
+    width: 28px !important;
+  }
+}
